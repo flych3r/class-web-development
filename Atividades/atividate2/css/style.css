@@ -1,0 +1,94 @@
+nav {
+    text-align: center;
+    width: 100%;
+    background-color: greenyellow;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+.img_frontpage {
+    width: 75%;
+}
+
+dd {
+    text-align: center;
+}
+
+#current {
+    color: red;
+}
+
+.list_item img {
+    width: 25%;
+    float: left;
+}
+
+.list_item p {
+    clear: both;
+}
+
+footer {
+    padding: 0px;
+    background-color: aqua;
+}
+
+address {
+    background-color: lightgray;
+}
+
+dl dd {
+    margin-bottom: 1%;
+}
+
+dl dt {
+    font-size: 120%;
+}
+
+table {
+    width: 100%;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+}
+
+table tr:nth-child(even) {
+    background-color: #eee;
+}
+
+table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+table th {
+    background-color: black;
+    color: white;
+}
+
+table td:nth-child(3) {
+    width: 25%;
+}
+
+table img {
+    width: 100%;
+}
+
+input {
+    margin: 0.5%;
+}
+
+body {
+    padding: 2%;
+    align-self: center;
+}
