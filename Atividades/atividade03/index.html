@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Java Script</title>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <button id="botaogerar">Botão Gerar</button>
+    <button id="botaoremover">Botão Remover</button>
+    <ul id="lista">
+    </ul>
+
+    <label for="numero1">Numero 1</label>
+    <input type="number" id="numero1">
+    <select id="operacao">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <label for="numero2">Numero 2</label>
+    <input type="number" id="numero2"><br>
+    <button id="calcular">Calcular</button><br>
+
+    <form id="formulario">
+        <fieldset>
+            <legend>Formulario</legend>
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder=""><br>
+            <label for="preco">Preço</label>
+            <input type="number" id="preco" placeholder=""><br>
+            <label for="quantidade">Quantidade</label>
+            <input type="number" id="quantidade" placeholder=""><br>
+        </fieldset>
+    </form>
+    <button id="enviar">Enviar</button>
+
+    <table id="tabela">
+        <tr>
+            <th>Produto</th>
+            <th>Total</th>
+        </tr>
+    </table>
+    <p>Total: <input type="text" id="total" value="0" disabled></p>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
