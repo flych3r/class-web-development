@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Front End</title>
+    <title>Galeria</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,10 +11,116 @@
 </head>
 
 <body>
-    
 
-    <script type="text/js" src="js/jquery-3.3.1.min.js"></script>
-    <script type="text/js" src="js/main.js"></script>
+    <nav>
+        <img src="images/logo.jpeg" alt="">
+        <a href="index.html">Descrição</a>
+        <a href="about.html">Sobre o Restaurante</a>
+        <a id="current" href="gallery.html">Pratos</a>
+        <a href="contact.html">Faça sua Reserva</a>
+    </nav>
+
+    <section class="galeria">
+        <h2>Nossos Pratos</h2>
+        <div class="gallery">
+            <img src="images/1.jpg" alt="">
+        </div>
+
+        <div class="gallery">
+            <img src="images/2.jpg" alt="">
+        </div>
+
+        <div class="gallery">
+            <img src="images/3.jpg" alt="">
+        </div>
+
+        <div class="gallery">
+            <img src="images/4.jpg" alt="">
+        </div>
+
+        <div class="gallery">
+            <img src="images/5.jpg" alt="">
+        </div>
+
+        <div class="gallery">
+            <img src="images/6.jpg" alt="">
+        </div>
+
+        <div class="gallery">
+            <img src="images/7.jpg" alt="">
+        </div>
+
+        <div class="gallery">
+            <img src="images/8.jpg" alt="">
+        </div>
+
+        <div class="gallery">
+            <img src="images/9.jpg" alt="">
+        </div>
+
+        <div class="gallery">
+            <img src="images/10.jpg" alt="">
+        </div>
+
+        <div class="gallery hide">
+            <img src="images/11.jpg" alt="">
+        </div>
+
+        <div class="gallery hide">
+            <img src="images/12.jpg" alt="">
+        </div>
+
+        <div class="gallery hide">
+            <img src="images/13.jpg" alt="">
+        </div>
+
+        <div class="gallery hide">
+            <img src="images/14.jpg" alt="">
+        </div>
+
+        <div class="gallery hide">
+            <img src="images/15.jpg" alt="">
+        </div>
+
+        <div class="gallery hide">
+            <img src="images/16.jpg" alt="">
+        </div>
+
+        <div class="gallery hide">
+            <img src="images/17.jpg" alt="">
+        </div>
+
+        <div class="gallery hide">
+            <img src="images/18.jpg" alt="">
+        </div>
+
+        <div class="gallery hide">
+            <img src="images/19.jpg" alt="">
+        </div>
+
+        <div class="gallery hide">
+            <img src="images/20.jpg" alt="">
+        </div>
+
+        <button class="widget" id="mais">Mostrar Mais</button>
+    </section>
+
+    <footer>
+        <p>Restaurante</p>
+        <p>Telefone</p>
+        <p>Endereco</p>
+    </footer>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#mais").click(function () {
+                console.log("click");
+                $(".hide").css({ "display": "inline-block" });
+                $("#mais").css({ "display": "none" });
+            });
+        });
+    </script>
 </body>
 
 </html>

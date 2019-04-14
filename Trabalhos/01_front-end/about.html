@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Front End</title>
+    <title>Sobre</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,10 +11,56 @@
 </head>
 
 <body>
-    
 
-    <script type="text/js" src="js/jquery-3.3.1.min.js"></script>
-    <script type="text/js" src="js/main.js"></script>
+    <nav>
+        <img src="images/logo.jpeg" alt="">
+        <a href="index.html">Descrição</a>
+        <a id="current" href="about.html">Sobre o Restaurante</a>
+        <a href="gallery.html">Pratos</a>
+        <a href="contact.html">Faça sua Reserva</a>
+    </nav>
+
+    <section id="accordion" class="sobre-restaurante">
+        <h2>Restaurante</h2>
+        <div>
+            <img src="images/front.jpg" alt="">
+            <p>
+                    Um restaurante é um estabelecimento comercial destinado ao preparo e comércio de refeições,
+                        normalmente servindo também todo o tipo de bebidas. Normalmente consiste em uma ou várias salas
+                        com mesas ou um balcão onde os clientes se sentam, e fazem refeições; Uma cozinha, podendo
+                        também ter outras áreas de serviço. A comida e bebida são servidas por garçons (ou empregados-de-mesa) e barmen.
+            </p>
+        </div>
+        <h2>Chefe</h2>
+        <div>
+            <img src="images/chef.jpg" alt="">
+            <p>
+                    Chef ("chefe" em francês, por sua vez do latim caput, "cabeça", "líder") é o indivíduo que elabora os pratos e organiza 
+                    toda a cozinha do restaurante além de supervisionar os serviços dos cozinheiros em hotéis, restaurantes, hospitais, residências
+                    e outros locais de refeições, planejando cardápios e elaborando o pré-preparo, o preparo e a finalização de alimentos, 
+                    observando métodos de cocção e padrões de qualidade dos alimentos.
+
+                    Chef se refere também à pessoa que cozinha profissionalmente para outras pessoas.
+                    O termo também é aplicado para descrever qualquer pessoa que cozinha para viver,
+                    tradicionalmente a um profissional qualificado que tem grande proficiência em todos os aspectos da preparação da comida.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Restaurante</p>
+        <p>Telefone</p>
+        <p>Endereco</p>
+    </footer>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#accordion" ).accordion();
+        } );
+    </script>
+
 </body>
 
 </html>
