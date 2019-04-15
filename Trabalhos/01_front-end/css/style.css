@@ -38,7 +38,6 @@ nav a:hover{
 }
 
 footer {
-
   clear: both;
   background-color: #17252a;
 }
@@ -69,6 +68,10 @@ footer p {
   width: 30%;
   position: relative;
   margin: auto;
+}
+
+.slideshow-container h2 {
+  text-align: center;
 }
 
 .text {
@@ -147,4 +150,37 @@ footer p {
 
 #mais {
   margin-top: 5%;
+}
+
+@media (max-width: 800px)
+{
+  .sobre-restaurante img {
+    width: 100%;
+  }
+
+  .mySlides {
+    vertical-align: left;
+    width: 400px;
+  }
+
+  .gallery {
+    width: 100%;
+    display: inline-block;
+    clear: both;
+  }
+
+  .gallery:hover {
+    transform: scale(1);
+  }
+
+  .mySlides {
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .slideshow-container {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+  }
 }

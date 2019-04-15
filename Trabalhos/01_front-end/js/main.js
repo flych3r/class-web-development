@@ -30,7 +30,7 @@ function dishOfDay() {
     {
         for(i = 1; i <= 5; i++) {
             pratos[j].src = "images/" + i + ".jpg";
-            valores[j].append(v[i]);
+            valores[j].append(v[i - 1]);
             j++;
         }
     }
@@ -38,7 +38,7 @@ function dishOfDay() {
     {
         for(i = 5; i <= 10; i++) {
             pratos[j].src = "images/" + i + ".jpg";
-            valores[j].append(v[i]);
+            valores[j].append(v[i - 1]);
             j++;
         }
     }
@@ -46,7 +46,7 @@ function dishOfDay() {
     {
         for(i = 11; i <= 15; i++) {
             pratos[j].src = "images/" + i + ".jpg";
-            valores[j].append(v[i]);
+            valores[j].append(v[i - 1]);
             j++;
         }
     }
@@ -54,7 +54,7 @@ function dishOfDay() {
     {
         for(i = 16; i <= 20; i++) {
             pratos[j].src = "images/" + i + ".jpg";
-            valores[j].append(v[i]);
+            valores[j].append(v[i - 1]);
             j++;
         }
     }
