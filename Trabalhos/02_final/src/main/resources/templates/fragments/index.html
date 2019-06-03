@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:fragment="head">
+        <link rel="icon" href="">
+        <link th:href="@{/css/icon.css}" rel="stylesheet"/>
+        <link th:href="@{/css/materialize.min.css}" rel="stylesheet"/>
+    </div>
+</head>
+<body>
+
+    <div th:fragment="nav" class="navbar-fixed">
+
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">Logo</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a th:href="@{/prato/listar}">Pratos</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-demo">
+            <li><a th:href="@{/prato/listar}">Pratos</a></li>
+        </ul>
+
+
+    </div>
+
+    <div th:fragment="script">
+        <script th:src="@{/js/materialize.min.js}"></script>
+    </div>
+
+</body>
+</html>
