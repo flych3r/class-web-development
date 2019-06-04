@@ -14,19 +14,20 @@
         <input type="hidden" th:field="*{id}">
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Nome do Prato" id="nome_prato" th:field="*{nome}" type="text" class="validate">
+                <input placeholder="Nome do Prato" id="nome_prato" th:field="*{nome}" type="text" class="validate" required>
                 <label for="nome_prato">Nome</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Descrição Prato" id="desc_prato" th:field="*{descricao}" type="text" class="validate">
+                <input placeholder="Descrição Prato" id="desc_prato" th:field="*{descricao}" type="text" class="validate" required>
                 <label for="desc_prato">Descrição Prato</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Preço Prato" id="preco_prato" th:field="*{preco}" type="number" min="0" value="0" step="0.01" pattern="^\d+(\.|\,)\d{2}$" class="validate">
+                <input placeholder="Preço Prato" id="preco_prato" th:field="*{preco}" type="number" min="0" value="0" step="0.01"
+                       pattern="^\d+(\.|\,)\d{2}$" class="validate" required>
                 <label for="preco_prato">Preço Prato</label>
             </div>
         </div>

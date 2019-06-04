@@ -19,18 +19,22 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a th:href="@{/prato/listar}">Pratos</a></li>
+                    <li><a th:href="@{/cliente/listar}">Clientes</a></li>
                 </ul>
             </div>
         </nav>
 
         <ul class="sidenav" id="mobile-demo">
             <li><a th:href="@{/prato/listar}">Pratos</a></li>
+            <li><a th:href="@{/cliente/listar}">Clientes</a></li>
         </ul>
 
 
     </div>
 
     <div th:fragment="script">
+        <script th:src="@{/js/jquery.min.js}"></script>
+        <script th:src="@{/js/jquery.mask.min.js}"></script>
         <script th:src="@{/js/materialize.min.js}"></script>
     </div>
 

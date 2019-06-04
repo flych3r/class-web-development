@@ -19,7 +19,7 @@ public class PratoController {
 
     @RequestMapping("/cadastrar")
     public ModelAndView cadastrar() {
-        ModelAndView mv = new ModelAndView("manager/cadastro_prato");
+        ModelAndView mv = new ModelAndView("gerente/cadastro_prato");
         mv.addObject("prato", new Prato());
         return mv;
     }
@@ -34,7 +34,7 @@ public class PratoController {
     @GetMapping("/listar")
     public ModelAndView listar() {
         List<Prato> listaPratos = pratoService.listPratos();
-        ModelAndView mv = new ModelAndView("manager/listar_pratos");
+        ModelAndView mv = new ModelAndView("gerente/listar_pratos");
         mv.addObject("listaPratos", listaPratos);
 
         return mv;
@@ -50,7 +50,7 @@ public class PratoController {
     @RequestMapping("/atualizar/{id}")
     public ModelAndView atualizar(@PathVariable Long id) {
         Prato prato = pratoService.serchById(id);
-        ModelAndView mv = new ModelAndView("manager/cadastro_prato");
+        ModelAndView mv = new ModelAndView("gerente/cadastro_prato");
         mv.addObject("prato", prato);
         return mv;
     }
