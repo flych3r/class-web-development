@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Carrinho</title>
+    <div th:replace="fragments/index :: head"></div>
+</head>
+<body>
+
+<div th:replace="fragments/index :: nav"></div>
+
+<h3>Cart Page</h3>
+<table cellpadding="2" cellspacing="2" border="1">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Preco</th>
+            <th>Quantidade</th>
+        </tr>
+    </thead>
+
+        <tr th:each="produto: ${session.carrinho}">
+            <td th:text="${produto.prato.idPrato}"></td>
+            <td th:text="${produto.prato.nome}"></td>
+            <td th:text="${produto.prato.preco}"></td>
+            <td th:text="${produto.quantidade}"></td>
+        <tr/>
+</table>
+
+<div th:replace="fragments/index :: script"></div>
+
+</body>
+</html>

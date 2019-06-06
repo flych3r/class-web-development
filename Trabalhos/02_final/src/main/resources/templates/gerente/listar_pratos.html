@@ -34,6 +34,9 @@
         <td> <a th:href="@{/prato/atualizar/{id}(id = ${prato.idPrato})}">
                 <button type="button" class="btn">Atualizar <i class="medium material-icons">update</i></button></a>
         </td>
+        <td> <a th:href="@{/carrinho/adicionar/{id}(id = ${prato.idPrato})}">
+            <button type="button" class="btn">Comprar <i class="medium material-icons">attach_money</i></button></a>
+        </td>
     </tr>
     </tbody>
 </table>

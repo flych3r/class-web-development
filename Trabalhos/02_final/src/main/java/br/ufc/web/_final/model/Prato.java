@@ -1,7 +1,9 @@
 package br.ufc.web._final.model;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -17,7 +19,7 @@ public class Prato {
     @NotBlank(message = "Preencha o campo descrição")
     private String descricao;
 
-    @NotBlank(message = "Preencha o campo preço")
+    @NotNull(message = "Preencha o campo preço")
     private Double preco;
 
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
