@@ -1,27 +1,34 @@
 package br.ufc.web._final.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Entity
 public class Prato {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idPrato;
 
+    @NotBlank(message = "Preencha o campo nome")
     private String nome;
+
+    @NotBlank(message = "Preencha o campo descrição")
     private String descricao;
+
+    @NotBlank(message = "Preencha o campo preço")
     private Double preco;
 
-    public Long getId() {
-        return id;
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private List<Item> itemList;
+
+    public Long getIdPrato() {
+        return idPrato;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdPrato(Long idPrato) {
+        this.idPrato = idPrato;
     }
 
     public String getNome() {

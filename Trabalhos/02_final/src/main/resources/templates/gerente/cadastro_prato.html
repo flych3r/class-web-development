@@ -11,7 +11,7 @@
 
 <div class="row">
     <form class="col s12" action="/prato/salvar" method="post" th:object="${prato}" enctype="multipart/form-data">
-        <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{idPrato}">
         <div class="row">
             <div class="input-field col s12">
                 <input placeholder="Nome do Prato" id="nome_prato" th:field="*{nome}" type="text" class="validate" required>
@@ -33,7 +33,7 @@
         </div>
         <div class="file-field input-field">
             <div class="btn">
-                <span>File</span>
+                <span>Imagem</span>
                 <input type="file" id="imagem" name="imagem">
             </div>
             <div class="file-path-wrapper">

@@ -23,15 +23,15 @@
     </thead>
     <tbody>
     <tr th:each="prato: ${listaPratos}">
-        <th scope="row" th:text="${prato.id}"></th>
+        <th scope="row" th:text="${prato.idPrato}"></th>
         <td th:text="${prato.nome}"></td>
         <td th:text="${prato.descricao}"></td>
         <td th:text="${prato.preco}"></td>
         <td><img width="100" height="100" th:src="@{'/images/' + ${prato.nome} + '.png'}"></td>
-        <td> <a th:href="@{/prato/excluir/{id}(id = ${prato.id})}">
+        <td> <a th:href="@{/prato/excluir/{id}(id = ${prato.idPrato})}">
             <button type="button" class="btn">Excluir <i class="medium material-icons">delete</i></button></a>
         </td>
-        <td> <a th:href="@{/prato/atualizar/{id}(id = ${prato.id})}">
+        <td> <a th:href="@{/prato/atualizar/{id}(id = ${prato.idPrato})}">
                 <button type="button" class="btn">Atualizar <i class="medium material-icons">update</i></button></a>
         </td>
     </tr>

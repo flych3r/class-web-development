@@ -24,17 +24,17 @@
     </thead>
     <tbody>
     <tr th:each="cliente: ${listaClientes}">
-        <th scope="row" th:text="${cliente.id}"></th>
+        <th scope="row" th:text="${cliente.idCliente}"></th>
         <td th:text="${cliente.nome}"></td>
         <td th:text="${cliente.cpf}"></td>
         <td th:text="${{cliente.dataNascimento}}"></td>
         <td th:text="${cliente.cpf}"></td>
         <td th:text="${cliente.email}"></td>
         <td th:text="${cliente.senha}"></td>
-        <td> <a th:href="@{/cliente/excluir/{id}(id = ${cliente.id})}">
+        <td> <a th:href="@{/cliente/excluir/{id}(id = ${cliente.idCliente})}">
             <button type="button" class="btn">Excluir <i class="medium material-icons">delete</i></button></a>
         </td>
-        <td> <a th:href="@{/cliente/atualizar/{id}(id = ${cliente.id})}">
+        <td> <a th:href="@{/cliente/atualizar/{id}(id = ${cliente.idCliente})}">
             <button type="button" class="btn">Atualizar <i class="medium material-icons">update</i></button></a>
         </td>
     </tr>

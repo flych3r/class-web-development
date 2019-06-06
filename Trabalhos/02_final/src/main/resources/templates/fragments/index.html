@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <div th:fragment="head">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="icon" href="">
         <link th:href="@{/css/icon.css}" rel="stylesheet"/>
         <link th:href="@{/css/materialize.min.css}" rel="stylesheet"/>
@@ -11,7 +12,7 @@
 </head>
 <body>
 
-    <div th:fragment="nav" class="navbar-fixed">
+    <div th:fragment="nav">
 
         <nav>
             <div class="nav-wrapper">
@@ -21,21 +22,26 @@
                     <li><a th:href="@{/prato/listar}">Pratos</a></li>
                     <li><a th:href="@{/cliente/listar}">Clientes</a></li>
                 </ul>
+                <ul class="sidenav" id="mobile-demo">
+                    <li><a th:href="@{/prato/listar}">Pratos</a></li>
+                    <li><a th:href="@{/cliente/listar}">Clientes</a></li>
+                </ul>
             </div>
-        </nav>
 
-        <ul class="sidenav" id="mobile-demo">
-            <li><a th:href="@{/prato/listar}">Pratos</a></li>
-            <li><a th:href="@{/cliente/listar}">Clientes</a></li>
-        </ul>
+        </nav>
 
 
     </div>
 
     <div th:fragment="script">
         <script th:src="@{/js/jquery.min.js}"></script>
-        <script th:src="@{/js/jquery.mask.min.js}"></script>
         <script th:src="@{/js/materialize.min.js}"></script>
+        <script th:src="@{/js/jquery.mask.min.js}"></script>
+        <script>
+            $(document).ready(function(){
+                $('.sidenav').sidenav();
+            });
+        </script>
     </div>
 
 </body>
