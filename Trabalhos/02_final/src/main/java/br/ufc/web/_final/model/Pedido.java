@@ -17,14 +17,20 @@ public class Pedido {
     @JoinColumn(name = "idCliente")
     private Cliente cliente;
 
-    @DateTimeFormat(pattern = "dd/mm/yyyy")
-    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false, columnDefinition = "DATETIME")
     private Date dataPedido;
 
     private Double total;
 
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<Item> itemList;
+
+    public Pedido(Cliente cliente, Double total) {
+        this.cliente = cliente;
+        this.total = total;
+    }
 
     public Long getIdPedido() { return idPedido; }
 
@@ -37,6 +43,14 @@ public class Pedido {
     public Date getDataPedido() { return dataPedido; }
 
     public void setDataPedido(Date dataNascimento) { this.dataPedido = dataNascimento; }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
 
     public List<Item> getItemList() {
         return itemList;

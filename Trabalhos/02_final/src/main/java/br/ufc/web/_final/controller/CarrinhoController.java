@@ -1,6 +1,6 @@
 package br.ufc.web._final.controller;
 
-import br.ufc.web._final.model.Produto;
+import br.ufc.web._final.model.Item;
 import br.ufc.web._final.service.PratoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,43 +21,50 @@ public class CarrinhoController {
 
     @RequestMapping(value = "/selecionados")
     public ModelAndView selecionado() {
-        ModelAndView mv = new ModelAndView("carrinho/selecionados");
+        ModelAndView mv = new ModelAndView("pedido/selecionados");
         return mv;
     }
 
     @RequestMapping(value = "/adicionar/{id}")
     public ModelAndView adicionar(@PathVariable("id") Long id, HttpSession session) {
         if (session.getAttribute("carrinho") == null) {
-            List<Produto> cart = new ArrayList<>();
-            cart.add(new Produto(pratoService.serchById(id), 1L));
+            List<Item> cart = new ArrayList<>();
+            cart.add(new Item(pratoService.serchById(id), 1L, pratoService.serchById(id).getPreco()));
             session.setAttribute("carrinho", cart);
         } else {
-            List<Produto> cart = (List<Produto>) session.getAttribute("carrinho");
+            List<Item> cart = (List<Item>) session.getAttribute("carrinho");
             int index = this.exists(id, cart);
             if (index == -1) {
-                cart.add(new Produto(pratoService.serchById(id), 1L));
+                cart.add(new Item(pratoService.serchById(id), 1L, pratoService.serchById(id).getPreco()));
             } else {
-                Long quantity = cart.get(index).getQuantidade() + 1;
-                cart.get(index).setQuantidade(quantity);
+                Long quantidade = cart.get(index).getQuantidade() + 1;
+                cart.get(index).setQuantidade(quantidade);
+                cart.get(index).setPreco(cart.get(index).getPrato().getPreco() * quantidade);
             }
             session.setAttribute("carrinho", cart);
         }
-        ModelAndView mv = new ModelAndView("redirect:/carrinho/selecionados");
+        ModelAndView mv = new ModelAndView("redirect:/pedido/selecionados");
         return mv;
     }
 
     @RequestMapping(value = "/remover/{id}")
     public ModelAndView remover(@PathVariable("id") Long id, HttpSession session) {
-        List<Produto> cart = (List<Produto>) session.getAttribute("carrinho");
+        List<Item> cart = (List<Item>) session.getAttribute("carrinho");
         int index = this.exists(id, cart);
         cart.remove(index);
         session.setAttribute("carrinho", cart);
-        ModelAndView mv = new ModelAndView("redirect:/carrinho/selecionados");
+        ModelAndView mv = new ModelAndView("redirect:/pedido/selecionados");
         return mv;
     }
 
-    private int exists(Long id, List<Produto> cart) {
-        return cart.lastIndexOf(pratoService.serchById(id));
+    private int exists(Long id, List<Item> cart) {
+
+        for(int i = 0; i < cart.size(); i++) {
+            if(cart.get(i).getPrato().getIdPrato() == id)
+                return i;
+        }
+
+        return -1;
     }
 
 }

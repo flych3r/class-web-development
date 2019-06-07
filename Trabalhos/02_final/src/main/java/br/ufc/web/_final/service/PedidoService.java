@@ -19,9 +19,7 @@ public class PedidoService {
 
     public List<Pedido> listPedidos() { return pedidoRepository.findAll(); }
 
-    public void delete(Long id) {
-        pedidoRepository.deleteById(id);
-    }
+    public void delete(Long id) { pedidoRepository.deleteById(id); }
 
     public Pedido serchById(Long id) { return pedidoRepository.getOne(id); }
 }

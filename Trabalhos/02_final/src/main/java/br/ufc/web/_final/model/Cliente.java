@@ -25,7 +25,7 @@ public class Cliente {
     private Endereco endereco;
 
     @NotNull(message = "Preencha o campo data de nascimento")
-    @DateTimeFormat(pattern = "dd/mm/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
     private String email;

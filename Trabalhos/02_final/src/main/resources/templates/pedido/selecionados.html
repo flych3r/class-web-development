@@ -20,14 +20,19 @@
         </tr>
     </thead>
 
-        <tr th:each="produto: ${session.carrinho}">
-            <td th:text="${produto.prato.idPrato}"></td>
-            <td th:text="${produto.prato.nome}"></td>
-            <td th:text="${produto.prato.preco}"></td>
-            <td th:text="${produto.quantidade}"></td>
+        <tr th:each="item: ${session.carrinho}">
+            <td th:text="${item.prato.idPrato}"></td>
+            <td th:text="${item.prato.nome}"></td>
+            <td th:text="${item.prato.preco}"></td>
+            <td th:text="${item.quantidade}"></td>
         <tr/>
 </table>
 
+<a th:href="@{/pedido/salvar}">
+    <button class="btn waves-effect waves-light" type="submit">Comprar
+    <i class="material-icons right">attach_money</i>
+    </button>
+</a>
 <div th:replace="fragments/index :: script"></div>
 
 </body>

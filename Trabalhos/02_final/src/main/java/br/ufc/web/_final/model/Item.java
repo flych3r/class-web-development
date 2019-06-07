@@ -20,6 +20,12 @@ public class Item {
     private Long quantidade;
     private Double preco;
 
+    public Item(Prato prato, Long quantidade, Double preco) {
+        this.prato = prato;
+        this.quantidade = quantidade;
+        this.preco = preco;
+    }
+
     public Long getIdItem() {
         return idItem;
     }
@@ -59,4 +65,5 @@ public class Item {
     public void setPreco(Double preco) {
         this.preco = preco;
     }
+
 }

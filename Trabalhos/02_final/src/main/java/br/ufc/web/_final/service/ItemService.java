@@ -17,6 +17,8 @@ public class ItemService {
         itemRepository.save(item);
     }
 
+    public void saveAll(Iterable<Item> itens) { itemRepository.saveAll(itens); }
+
     public List<Item> listItens() { return itemRepository.findAll(); }
 
     public void delete(Long id) {
