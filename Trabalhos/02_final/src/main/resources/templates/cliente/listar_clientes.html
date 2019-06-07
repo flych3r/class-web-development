@@ -35,7 +35,10 @@
             <button type="button" class="btn">Excluir <i class="medium material-icons">delete</i></button></a>
         </td>
         <td> <a th:href="@{/cliente/atualizar/{id}(id = ${cliente.idCliente})}">
-            <button type="button" class="btn">Atualizar <i class="medium material-icons">update</i></button></a>
+            <button type="button" class="btn">Atualizar <i class="medium material-icons">create</i></button></a>
+        </td>
+        <td> <a th:href="@{/pedido/listar/{id}(id = ${cliente.idCliente})}">
+            <button type="button" class="btn">Pedidos <i class="medium material-icons">event_available</i></button></a>
         </td>
     </tr>
     </tbody>

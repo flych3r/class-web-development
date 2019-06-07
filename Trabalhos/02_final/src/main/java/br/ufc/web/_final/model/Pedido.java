@@ -27,11 +27,6 @@ public class Pedido {
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<Item> itemList;
 
-    public Pedido(Cliente cliente, Double total) {
-        this.cliente = cliente;
-        this.total = total;
-    }
-
     public Long getIdPedido() { return idPedido; }
 
     public void setIdPedido(Long idPedido) { this.idPedido = idPedido; }

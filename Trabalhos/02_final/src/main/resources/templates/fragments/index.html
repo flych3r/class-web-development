@@ -8,40 +8,43 @@
         <link rel="icon" href="">
         <link th:href="@{/css/icon.css}" rel="stylesheet"/>
         <link th:href="@{/css/materialize.min.css}" rel="stylesheet"/>
+        <link th:href="@{/css/style.css}" rel="stylesheet"/>
     </div>
 </head>
 <body>
 
-    <div th:fragment="nav">
-
-        <nav>
+    <header th:fragment="nav">
+        <div>
+        <nav class="nav-fixed">
             <div class="nav-wrapper">
                 <a href="#!" class="brand-logo">Logo</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a th:href="@{/prato/listar}">Pratos</a></li>
                     <li><a th:href="@{/cliente/listar}">Clientes</a></li>
-                    <li><a th:href="@{/carrinho/selecionados}">Carrinho</a></li>
-                </ul>
-                <ul class="sidenav" id="mobile-demo">
-                    <li><a th:href="@{/prato/listar}">Pratos</a></li>
-                    <li><a th:href="@{/cliente/listar}">Clientes</a></li>
-                    <li><a th:href="@{/carrinho/selecionados}">Carrinho</a></li>
+                    <li><a th:href="@{/pedido/selecionados}">Carrinho</a></li>
                 </ul>
             </div>
 
         </nav>
 
+        <ul class="sidenav" id="mobile-demo">
+            <li><a th:href="@{/prato/listar}">Pratos</a></li>
+            <li><a th:href="@{/cliente/listar}">Clientes</a></li>
+            <li><a th:href="@{/pedido/selecionados}">Carrinho</a></li>
+        </ul>
 
-    </div>
+        </div>
+
+    </header>
 
     <div th:fragment="script">
-        <script th:src="@{/js/jquery.min.js}"></script>
-        <script th:src="@{/js/materialize.min.js}"></script>
-        <script th:src="@{/js/jquery.mask.min.js}"></script>
-        <script>
+        <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/materialize.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/jquery.mask.min.js}"></script>
+        <script type="text/javascript">
             $(document).ready(function(){
-                $('.sidenav').sidenav();
+                $('.sidenav')._sidenavs();
             });
         </script>
     </div>

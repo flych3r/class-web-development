@@ -32,9 +32,9 @@
             <button type="button" class="btn">Excluir <i class="medium material-icons">delete</i></button></a>
         </td>
         <td> <a th:href="@{/prato/atualizar/{id}(id = ${prato.idPrato})}">
-                <button type="button" class="btn">Atualizar <i class="medium material-icons">update</i></button></a>
+                <button type="button" class="btn">Atualizar <i class="medium material-icons">create</i></button></a>
         </td>
-        <td> <a th:href="@{/carrinho/adicionar/{id}(id = ${prato.idPrato})}">
+        <td> <a th:href="@{/pedido/adicionar/{id}(id = ${prato.idPrato})}">
             <button type="button" class="btn">Comprar <i class="medium material-icons">attach_money</i></button></a>
         </td>
     </tr>
@@ -43,7 +43,7 @@
 
 <a th:href="@{/prato/cadastrar}"><button type="button" class="btn">Cadastrar <i class="medium material-icons">add_circle</i></button></a>
 
-<div th:replace="fragments/index :: head"></div>
+<div th:replace="fragments/index :: script"></div>
 
 </body>
 </html>

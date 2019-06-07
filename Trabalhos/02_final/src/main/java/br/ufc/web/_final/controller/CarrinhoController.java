@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("carrinho")
+@RequestMapping("pedido")
 public class CarrinhoController {
 
     @Autowired
@@ -29,13 +29,21 @@ public class CarrinhoController {
     public ModelAndView adicionar(@PathVariable("id") Long id, HttpSession session) {
         if (session.getAttribute("carrinho") == null) {
             List<Item> cart = new ArrayList<>();
-            cart.add(new Item(pratoService.serchById(id), 1L, pratoService.serchById(id).getPreco()));
+            Item item = new Item();
+            item.setPrato(pratoService.serchById(id));
+            item.setQuantidade(1L);
+            item.setPreco(pratoService.serchById(id).getPreco());
+            cart.add(item);
             session.setAttribute("carrinho", cart);
         } else {
             List<Item> cart = (List<Item>) session.getAttribute("carrinho");
             int index = this.exists(id, cart);
             if (index == -1) {
-                cart.add(new Item(pratoService.serchById(id), 1L, pratoService.serchById(id).getPreco()));
+                Item item = new Item();
+                item.setPrato(pratoService.serchById(id));
+                item.setQuantidade(1L);
+                item.setPreco(pratoService.serchById(id).getPreco());
+                cart.add(item);
             } else {
                 Long quantidade = cart.get(index).getQuantidade() + 1;
                 cart.get(index).setQuantidade(quantidade);

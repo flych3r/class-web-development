@@ -1,5 +1,6 @@
 package br.ufc.web._final.service;
 
+import br.ufc.web._final.model.Cliente;
 import br.ufc.web._final.model.Pedido;
 import br.ufc.web._final.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +23,8 @@ public class PedidoService {
     public void delete(Long id) { pedidoRepository.deleteById(id); }
 
     public Pedido serchById(Long id) { return pedidoRepository.getOne(id); }
+
+    public List<Pedido> findCliente(Cliente cliente) {
+        return pedidoRepository.findByCliente(cliente);
+    }
 }

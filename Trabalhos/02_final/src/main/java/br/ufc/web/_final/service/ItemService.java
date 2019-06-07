@@ -1,6 +1,7 @@
 package br.ufc.web._final.service;
 
 import br.ufc.web._final.model.Item;
+import br.ufc.web._final.model.Pedido;
 import br.ufc.web._final.repository.ItemRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,9 @@ public class ItemService {
     }
 
     public Item serchById(Long id) { return itemRepository.getOne(id); }
+
+    public List<Item> findItem(Pedido pedido) {
+        return itemRepository.findByPedido(pedido);
+    }
 
 }
