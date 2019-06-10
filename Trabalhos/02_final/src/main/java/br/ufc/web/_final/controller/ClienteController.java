@@ -4,6 +4,8 @@ import br.ufc.web._final.model.Cliente;
 import br.ufc.web._final.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +21,7 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-    @RequestMapping("/cadastrar")
+    @RequestMapping(value = "/cadastrar")
     public ModelAndView cadastrar() {
         ModelAndView mv = new ModelAndView("cliente/cadastrar_cliente");
         mv.addObject("cliente", new Cliente());
@@ -27,9 +29,13 @@ public class ClienteController {
     }
 
     @PostMapping("/salvar")
-    public ModelAndView salvar(Cliente cliente) {
+    public ModelAndView salvar(@Validated Cliente cliente, BindingResult result) {
+        if(result.hasErrors()) {
+            ModelAndView mv = new ModelAndView("cliente/cadastrar_cliente");
+            return mv;
+        }
         clienteService.save(cliente);
-        ModelAndView mv = new ModelAndView("redirect:/cliente/listar");
+        ModelAndView mv = new ModelAndView("redirect:/pedido/selecionados");
         return mv;
     }
 
@@ -45,7 +51,7 @@ public class ClienteController {
     @RequestMapping("/excluir/{id}")
     public ModelAndView excluir(@PathVariable Long id) {
         clienteService.delete(id);
-        ModelAndView mv = new ModelAndView("redirect:/cliente/listar");
+        ModelAndView mv = new ModelAndView("redirect:/prato/listar_cliente");
         return mv;
     }
 

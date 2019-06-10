@@ -7,27 +7,29 @@
 </head>
 <body>
 
-<div th:replace="fragments/index :: nav"></div>
+<div th:replace="fragments/index :: nav-cliente"></div>
 
 <table class="striped centered">
     <thead>
     <tr>
         <th scope="col">Id Pedido</th>
-        <th scope="col">Id Cliente</th>
+        <th scope="col">Nome Cliente</th>
         <th scope="col">Data</th>
         <th scope="col">Total</th>
+        <th scope="col">Estatus</th>
         <th scope="col"></th>
 
     </tr>
     </thead>
     <tbody>
     <tr th:each="pedido: ${listaPedidos}">
-        <th scope="row" th:text="${pedido.idPedido}"></th>
-        <td th:text="${pedido.cliente.idCliente}"></td>
-        <td th:text="${pedido.dataPedido}"></td>
-        <td th:text="${pedido.total}"></td>
+        <td scope="row" th:text="${pedido.idPedido}"></td>
+        <td scope="row" th:text="${pedido.cliente.nome}"></td>
+        <td scope="row" th:text="${{pedido.dataPedido}}"></td>
+        <td scope="row" th:text="${'R$ ' + pedido.total}"></td>
+        <td scope="row" th:text="${pedido.pendente == 1 ? 'Pendente' : 'Enviado'}"></td>
         <td> <a th:href="@{/item/listar/{id}(id = ${pedido.idPedido})}">
-            <button type="button" class="btn">Itens <i class="medium material-icons">event_note</i></button></a>
+            <button type="button" class="btn">Itens<i class="medium material-icons">event_note</i></button></a>
         </td>
     </tr>
     </tbody>

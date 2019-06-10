@@ -31,7 +31,10 @@ public class Cliente {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
+
+    @NotBlank(message = "Preencha o campo de email")
     private String email;
+    @NotBlank(message = "Preencha o campo de senha")
     private String senha;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)

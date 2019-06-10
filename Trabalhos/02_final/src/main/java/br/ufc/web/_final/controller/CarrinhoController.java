@@ -27,6 +27,7 @@ public class CarrinhoController {
 
     @RequestMapping(value = "/adicionar/{id}")
     public ModelAndView adicionar(@PathVariable("id") Long id, HttpSession session) {
+        Double total = 0.0;
         if (session.getAttribute("carrinho") == null) {
             List<Item> cart = new ArrayList<>();
             Item item = new Item();
@@ -34,7 +35,9 @@ public class CarrinhoController {
             item.setQuantidade(1L);
             item.setPreco(pratoService.serchById(id).getPreco());
             cart.add(item);
+            total = item.getPreco();
             session.setAttribute("carrinho", cart);
+            session.setAttribute("total", total);
         } else {
             List<Item> cart = (List<Item>) session.getAttribute("carrinho");
             int index = this.exists(id, cart);
@@ -45,22 +48,32 @@ public class CarrinhoController {
                 item.setPreco(pratoService.serchById(id).getPreco());
                 cart.add(item);
             } else {
-                Long quantidade = cart.get(index).getQuantidade() + 1;
-                cart.get(index).setQuantidade(quantidade);
-                cart.get(index).setPreco(cart.get(index).getPrato().getPreco() * quantidade);
+                cart.get(index).increaseQuantidade();
+            }
+            for(Item i: cart) {
+                total += i.getPreco() * i.getQuantidade();
             }
             session.setAttribute("carrinho", cart);
+            session.setAttribute("total", total);
         }
+
         ModelAndView mv = new ModelAndView("redirect:/pedido/selecionados");
         return mv;
     }
 
     @RequestMapping(value = "/remover/{id}")
     public ModelAndView remover(@PathVariable("id") Long id, HttpSession session) {
+        Double total = 0.0;
         List<Item> cart = (List<Item>) session.getAttribute("carrinho");
         int index = this.exists(id, cart);
-        cart.remove(index);
+        cart.get(index).decreaseQuantidade();
+        if(cart.get(index).getQuantidade() == 0)
+            cart.remove(index);
+        for(Item i: cart) {
+            total += i.getPreco() * i.getQuantidade();
+        }
         session.setAttribute("carrinho", cart);
+        session.setAttribute("total", total);
         ModelAndView mv = new ModelAndView("redirect:/pedido/selecionados");
         return mv;
     }

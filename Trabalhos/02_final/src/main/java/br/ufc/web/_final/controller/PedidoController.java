@@ -42,30 +42,53 @@ public class PedidoController {
         for (Item item: cart) {
 
             item.setPedido(pedido);
-            total += item.getPreco();
+            total += item.getPreco() * item.getQuantidade();
         }
 
         itemService.saveAll(cart);
 
         pedido.setTotal(total);
+        pedido.setPendente(1);
         pedidoService.save(pedido);
 
         session.invalidate();
 
-        ModelAndView mv = new ModelAndView("redirect:/prato/listar");
+        ModelAndView mv = new ModelAndView("redirect:/pedido/listar/1");
         return mv;
     }
 
     @RequestMapping("/listar/{id}")
     public ModelAndView listar(@PathVariable Long id) {
 
-        Cliente cliente = clienteService.serchById(id);
+        Cliente cliente = clienteService.serchById(1L);
 
         List<Pedido> listaPedidos = pedidoService.findCliente(cliente);
 
         ModelAndView mv = new ModelAndView("pedido/listar_pedidos");
         mv.addObject("listaPedidos", listaPedidos);
         return mv;
+    }
+
+    @RequestMapping("/listar_pendente")
+    public ModelAndView listarPendente() {
+
+        List<Pedido> listaPedidos = pedidoService.findAll();
+
+        ModelAndView mv = new ModelAndView("pedido/listar_pendente");
+        mv.addObject("listaPedidos", listaPedidos);
+        return mv;
+    }
+
+    @RequestMapping("/enviar/{id}")
+    public ModelAndView enviar(@PathVariable Long id) {
+
+        Pedido pedido = pedidoService.serchById(id);
+
+        pedido.setPendente(0);
+        pedidoService.save(pedido);
+
+//        ModelAndView mv = new ModelAndView("redirect:pedido/listar_pendente");
+        return listarPendente();
     }
 
 }

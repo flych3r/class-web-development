@@ -13,26 +13,55 @@
 </head>
 <body>
 
-    <header th:fragment="nav">
+    <header th:fragment="nav-gerente">
         <div>
         <nav class="nav-fixed">
             <div class="nav-wrapper">
-                <a href="#!" class="brand-logo">Logo</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <a href="/" class="brand-logo">Logo</a>
+                <a href="#" data-target="mobile-demo-g" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a th:href="@{/prato/listar}">Pratos</a></li>
+                    <li><a th:href="@{/prato/listar_gerente}">Pratos</a></li>
                     <li><a th:href="@{/cliente/listar}">Clientes</a></li>
-                    <li><a th:href="@{/pedido/selecionados}">Carrinho</a></li>
+                    <li><a th:href="@{/pedido/listar_pendente}">Pedidos</a></li>
                 </ul>
             </div>
 
         </nav>
 
-        <ul class="sidenav" id="mobile-demo">
-            <li><a th:href="@{/prato/listar}">Pratos</a></li>
+        <ul class="sidenav" id="mobile-demo-g">
+            <li><a th:href="@{/prato/listar_gerente}">Pratos</a></li>
             <li><a th:href="@{/cliente/listar}">Clientes</a></li>
-            <li><a th:href="@{/pedido/selecionados}">Carrinho</a></li>
+            <li><a th:href="@{/pedido/listar_pendente}">Pedidos</a></li>
         </ul>
+
+        </div>
+
+    </header>
+
+    <header th:fragment="nav-cliente">
+        <div>
+            <nav class="nav-fixed">
+                <div class="nav-wrapper">
+                    <a href="/" class="brand-logo">Logo</a>
+                    <a href="#" data-target="mobile-demo-c" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a th:href="@{/prato/listar_cliente}">Pratos</a></li>
+                        <li><a th:href="@{/pedido/selecionados}">Carrinho</a></li>
+                        <li><a th:href="@{/pedido/listar/{id}(id = ${1})}">Pedidos</a></li>
+                        <li><a th:href="@{/cliente/atualizar/{id}(id = ${1})}">Conta</a></li>
+                        <li><a th:href="@{/cliente/cadastrar}">Cadastrar</a></li>
+                    </ul>
+                </div>
+
+            </nav>
+
+            <ul class="sidenav" id="mobile-demo-c">
+                <li><a th:href="@{/prato/listar_cliente}">Pratos</a></li>
+                <li><a th:href="@{/pedido/selecionados}">Carrinho</a></li>
+                <li><a th:href="@{/pedido/listar/{id}(id = ${1})}">Pedidos</a></li>
+                <li><a th:href="@{/cliente/atualizar/{id}(id = ${1})}">Conta</a></li>
+                <li><a th:href="@{/cliente/cadastrar}">Cadastrar</a></li>
+            </ul>
 
         </div>
 

@@ -27,4 +27,6 @@ public class PedidoService {
     public List<Pedido> findCliente(Cliente cliente) {
         return pedidoRepository.findByCliente(cliente);
     }
+
+    public List<Pedido> findAll() { return pedidoRepository.findAll(); }
 }

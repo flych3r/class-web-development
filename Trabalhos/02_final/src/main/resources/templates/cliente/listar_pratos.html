@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div th:replace="fragments/index :: nav-gerente"></div>
+<div th:replace="fragments/index :: nav-cliente"></div>
 
 <table class="striped centered">
     <thead>
@@ -16,7 +16,6 @@
         <th scope="col">Descrição</th>
         <th scope="col">Preço</th>
         <th scope="col">Imagem</th>
-        <th scope="col"></th>
         <th scope="col"></th>
     </tr>
     </thead>
@@ -27,18 +26,13 @@
             <td scope="row" th:text="${prato.descricao}"></td>
             <td scope="row" th:text="${'R$ ' + prato.preco}"></td>
             <td scope="row"><img width="100" height="100" th:src="@{'/images/' + ${prato.nome} + ${prato.idPrato} + '.png'}"></td>
-            <td> <a th:href="@{/prato/excluir/{id}(id = ${prato.idPrato})}">
-                <button type="button" class="btn">Excluir <i class="medium material-icons">delete</i></button></a>
-            </td>
-            <td> <a th:href="@{/prato/atualizar/{id}(id = ${prato.idPrato})}">
-                    <button type="button" class="btn">Atualizar <i class="medium material-icons">create</i></button></a>
+            <td scope="row"> <a th:href="@{/pedido/adicionar/{id}(id = ${prato.idPrato})}">
+                <button type="button" class="btn">Comprar <i class="medium material-icons">add_shopping_cart</i></button></a>
             </td>
         </div>
     </tr>
     </tbody>
 </table>
-
-<a th:href="@{/prato/cadastrar}"><button type="button" class="btn">Cadastrar <i class="medium material-icons">add_circle</i></button></a>
 
 <div th:replace="fragments/index :: script"></div>
 

@@ -9,7 +9,7 @@ public class IndexController {
 
     @RequestMapping("/")
     public ModelAndView index() {
-        ModelAndView mv = new ModelAndView("redirect:/prato/listar");
+        ModelAndView mv = new ModelAndView("index");
         return mv;
     }
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Listar Pedidos Pendentes</title>
+    <div th:replace="fragments/index :: head"></div>
+</head>
+<body>
+
+<div th:replace="fragments/index :: nav-gerente"></div>
+
+<table class="striped centered">
+    <thead>
+    <tr>
+        <th scope="col">Id Pedido</th>
+        <th scope="col">Nome Cliente</th>
+        <th scope="col">Endereço</th>
+        <th scope="col">Data</th>
+        <th scope="col">Total</th>
+        <th scope="col">Enviar</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pedido: ${listaPedidos}">
+        <div th:if="${pedido.pendente == 1}">
+            <td scope="row" th:text="${pedido.idPedido}"></td>
+            <td scope="row" th:text="${pedido.cliente.nome}"></td>
+            <td scope="row" th:text="${pedido.cliente.endereco.toString()}"></td>
+            <td scope="row" th:text="${{pedido.dataPedido}}"></td>
+            <td scope="row" th:text="${'R$ ' + pedido.total}"></td>
+            <td> <a th:href="@{/pedido/enviar/{id}(id = ${pedido.idPedido})}">
+                <button type="button" class="btn"><i class="medium material-icons">local_shipping</i></button></a>
+            </td>
+        </div>
+    </tr>
+    </tbody>
+</table>
+
+<div th:replace="fragments/index :: head"></div>
+
+</body>
+</html>

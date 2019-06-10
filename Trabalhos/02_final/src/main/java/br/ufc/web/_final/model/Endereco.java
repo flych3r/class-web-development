@@ -57,4 +57,8 @@ public class Endereco {
         this.cidade = cidade;
     }
 
+    public String toString() {
+        String endereco = rua + ", Nº " + numero + ", Bairro " + bairro + ", " + cidade;
+        return endereco;
+    }
 }

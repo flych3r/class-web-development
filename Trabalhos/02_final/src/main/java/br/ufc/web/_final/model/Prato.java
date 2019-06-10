@@ -13,6 +13,8 @@ public class Prato {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPrato;
 
+    private int status;
+
     @NotBlank(message = "Preencha o campo nome")
     private String nome;
 
@@ -24,6 +26,14 @@ public class Prato {
 
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<Item> itemList;
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     public Long getIdPrato() {
         return idPrato;

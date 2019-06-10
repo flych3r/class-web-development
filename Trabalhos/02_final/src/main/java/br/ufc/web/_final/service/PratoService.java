@@ -17,17 +17,21 @@ public class PratoService {
     private PratoRepository pratoRepository;
 
     public void save(Prato prato, @RequestParam(value = "imagem") MultipartFile imagem) {
-        String caminho = "images/" + prato.getNome() + ".png";
-        ImageUtil.saveImage(caminho, imagem);
+        prato.setStatus(1);
         pratoRepository.save(prato);
+        String caminho = "images/" + prato.getNome() + prato.getIdPrato() + ".png";
+        ImageUtil.saveImage(caminho, imagem);
     }
 
     public List<Prato> listPratos() { return pratoRepository.findAll(); }
 
     public void delete(Long id) {
-        String caminho = "images/" + serchById(id).getNome() + ".png";
+        String caminho = "images/" + serchById(id).getNome() + serchById(id).getIdPrato() + ".png";
         ImageUtil.deleteImage(caminho);
-        pratoRepository.deleteById(id);
+
+        Prato prato = pratoRepository.getOne(id);
+        prato.setStatus(0);
+        pratoRepository.save(prato);
     }
 
     public Prato serchById(Long id) { return pratoRepository.getOne(id); }

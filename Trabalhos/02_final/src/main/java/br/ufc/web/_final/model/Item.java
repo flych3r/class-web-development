@@ -60,4 +60,7 @@ public class Item {
         this.preco = preco;
     }
 
+    public void increaseQuantidade() { quantidade++; }
+    public void decreaseQuantidade() { quantidade--; }
+
 }

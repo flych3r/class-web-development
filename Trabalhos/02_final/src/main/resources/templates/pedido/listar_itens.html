@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div th:replace="fragments/index :: nav"></div>
+<div th:replace="fragments/index :: nav-cliente"></div>
 
 <table class="striped centered">
     <thead>
@@ -19,9 +19,9 @@
     </thead>
     <tbody>
     <tr th:each="item: ${listaItens}">
-        <th scope="row" th:text="${item.prato.nome}"></th>
-        <td th:text="${item.quantidade}"></td>
-        <td th:text="${item.preco}"></td>
+        <td scope="row" th:text="${item.prato.nome}"></td>
+        <td scope="row" th:text="${item.quantidade}"></td>
+        <td scope="row" th:text="${'R$ ' + item.preco}"></td>
     </tr>
     </tbody>
 </table>

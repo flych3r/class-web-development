@@ -8,7 +8,16 @@
 </head>
 <body>
 
-    <div th:replace="fragments/index :: nav"></div>
+<nav class="nav-fixed">
+    <div class="nav-wrapper">
+        <a href="/" class="brand-logo">Logo</a>
+        <a href="#" data-target="mobile-demo-g" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a th:href="@{/prato/listar_gerente}">Gerente</a></li>
+            <li><a th:href="@{/prato/listar_cliente}">Clientes</a></li>
+        </ul>
+    </div>
+</nav>
 
 <script th:src="@{/js/materialize.min.js}"></script>
 
