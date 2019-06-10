@@ -23,7 +23,9 @@ public class PratoService {
         ImageUtil.saveImage(caminho, imagem);
     }
 
-    public List<Prato> listPratos() { return pratoRepository.findAll(); }
+    public List<Prato> listPratos() {
+        return pratoRepository.findAll();
+    }
 
     public void delete(Long id) {
         String caminho = "images/" + serchById(id).getNome() + serchById(id).getIdPrato() + ".png";
@@ -34,5 +36,7 @@ public class PratoService {
         pratoRepository.save(prato);
     }
 
-    public Prato serchById(Long id) { return pratoRepository.getOne(id); }
+    public Prato serchById(Long id) {
+        return pratoRepository.getOne(id);
+    }
 }

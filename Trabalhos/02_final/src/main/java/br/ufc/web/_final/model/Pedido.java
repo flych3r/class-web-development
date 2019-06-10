@@ -28,17 +28,29 @@ public class Pedido {
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<Item> itemList;
 
-    public Long getIdPedido() { return idPedido; }
+    public Long getIdPedido() {
+        return idPedido;
+    }
 
-    public void setIdPedido(Long idPedido) { this.idPedido = idPedido; }
+    public void setIdPedido(Long idPedido) {
+        this.idPedido = idPedido;
+    }
 
-    public Cliente getCliente() { return cliente; }
+    public Cliente getCliente() {
+        return cliente;
+    }
 
-    public void setCliente(Cliente cliente) { this.cliente = cliente; }
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 
-    public Date getDataPedido() { return dataPedido; }
+    public Date getDataPedido() {
+        return dataPedido;
+    }
 
-    public void setDataPedido(Date dataPedido) { this.dataPedido = dataPedido; }
+    public void setDataPedido(Date dataPedido) {
+        this.dataPedido = dataPedido;
+    }
 
     public Double getTotal() {
         return total;

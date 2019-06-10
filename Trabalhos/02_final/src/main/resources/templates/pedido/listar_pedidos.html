@@ -28,8 +28,9 @@
         <td scope="row" th:text="${{pedido.dataPedido}}"></td>
         <td scope="row" th:text="${'R$ ' + pedido.total}"></td>
         <td scope="row" th:text="${pedido.pendente == 1 ? 'Pendente' : 'Enviado'}"></td>
-        <td> <a th:href="@{/item/listar/{id}(id = ${pedido.idPedido})}">
-            <button type="button" class="btn">Itens<i class="medium material-icons">event_note</i></button></a>
+        <td><a th:href="@{/item/listar/{id}(id = ${pedido.idPedido})}">
+            <button class="btn" type="button">Itens<i class="medium material-icons">event_note</i></button>
+        </a>
         </td>
     </tr>
     </tbody>

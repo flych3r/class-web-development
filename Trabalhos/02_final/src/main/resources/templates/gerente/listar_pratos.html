@@ -26,19 +26,24 @@
             <td scope="row" th:text="${prato.nome}"></td>
             <td scope="row" th:text="${prato.descricao}"></td>
             <td scope="row" th:text="${'R$ ' + prato.preco}"></td>
-            <td scope="row"><img width="100" height="100" th:src="@{'/images/' + ${prato.nome} + ${prato.idPrato} + '.png'}"></td>
-            <td> <a th:href="@{/prato/excluir/{id}(id = ${prato.idPrato})}">
-                <button type="button" class="btn">Excluir <i class="medium material-icons">delete</i></button></a>
+            <td scope="row"><img height="100" th:src="@{'/images/' + ${prato.nome} + ${prato.idPrato} + '.png'}"
+                                 width="100"></td>
+            <td><a th:href="@{/prato/excluir/{id}(id = ${prato.idPrato})}">
+                <button class="btn" type="button">Excluir <i class="medium material-icons">delete</i></button>
+            </a>
             </td>
-            <td> <a th:href="@{/prato/atualizar/{id}(id = ${prato.idPrato})}">
-                    <button type="button" class="btn">Atualizar <i class="medium material-icons">create</i></button></a>
+            <td><a th:href="@{/prato/atualizar/{id}(id = ${prato.idPrato})}">
+                <button class="btn" type="button">Atualizar <i class="medium material-icons">create</i></button>
+            </a>
             </td>
         </div>
     </tr>
     </tbody>
 </table>
 
-<a th:href="@{/prato/cadastrar}"><button type="button" class="btn">Cadastrar <i class="medium material-icons">add_circle</i></button></a>
+<a th:href="@{/prato/cadastrar}">
+    <button class="btn" type="button">Cadastrar <i class="medium material-icons">add_circle</i></button>
+</a>
 
 <div th:replace="fragments/index :: script"></div>
 

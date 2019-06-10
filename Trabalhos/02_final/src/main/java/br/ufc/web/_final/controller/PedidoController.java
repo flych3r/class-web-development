@@ -39,7 +39,7 @@ public class PedidoController {
         Iterable<Item> cart = (Iterable<Item>) session.getAttribute("carrinho");
 
         Double total = 0.0;
-        for (Item item: cart) {
+        for (Item item : cart) {
 
             item.setPedido(pedido);
             total += item.getPreco() * item.getQuantidade();

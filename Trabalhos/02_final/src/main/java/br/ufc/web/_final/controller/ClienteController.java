@@ -30,7 +30,7 @@ public class ClienteController {
 
     @PostMapping("/salvar")
     public ModelAndView salvar(@Validated Cliente cliente, BindingResult result) {
-        if(result.hasErrors()) {
+        if (result.hasErrors()) {
             ModelAndView mv = new ModelAndView("cliente/cadastrar_cliente");
             return mv;
         }

@@ -18,15 +18,23 @@ public class PedidoService {
         pedidoRepository.save(pedido);
     }
 
-    public List<Pedido> listPedidos() { return pedidoRepository.findAll(); }
+    public List<Pedido> listPedidos() {
+        return pedidoRepository.findAll();
+    }
 
-    public void delete(Long id) { pedidoRepository.deleteById(id); }
+    public void delete(Long id) {
+        pedidoRepository.deleteById(id);
+    }
 
-    public Pedido serchById(Long id) { return pedidoRepository.getOne(id); }
+    public Pedido serchById(Long id) {
+        return pedidoRepository.getOne(id);
+    }
 
     public List<Pedido> findCliente(Cliente cliente) {
         return pedidoRepository.findByCliente(cliente);
     }
 
-    public List<Pedido> findAll() { return pedidoRepository.findAll(); }
+    public List<Pedido> findAll() {
+        return pedidoRepository.findAll();
+    }
 }

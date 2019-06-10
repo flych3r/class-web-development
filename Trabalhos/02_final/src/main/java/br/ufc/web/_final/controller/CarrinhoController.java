@@ -50,7 +50,7 @@ public class CarrinhoController {
             } else {
                 cart.get(index).increaseQuantidade();
             }
-            for(Item i: cart) {
+            for (Item i : cart) {
                 total += i.getPreco() * i.getQuantidade();
             }
             session.setAttribute("carrinho", cart);
@@ -67,9 +67,9 @@ public class CarrinhoController {
         List<Item> cart = (List<Item>) session.getAttribute("carrinho");
         int index = this.exists(id, cart);
         cart.get(index).decreaseQuantidade();
-        if(cart.get(index).getQuantidade() == 0)
+        if (cart.get(index).getQuantidade() == 0)
             cart.remove(index);
-        for(Item i: cart) {
+        for (Item i : cart) {
             total += i.getPreco() * i.getQuantidade();
         }
         session.setAttribute("carrinho", cart);
@@ -80,8 +80,8 @@ public class CarrinhoController {
 
     private int exists(Long id, List<Item> cart) {
 
-        for(int i = 0; i < cart.size(); i++) {
-            if(cart.get(i).getPrato().getIdPrato() == id)
+        for (int i = 0; i < cart.size(); i++) {
+            if (cart.get(i).getPrato().getIdPrato() == id)
                 return i;
         }
 

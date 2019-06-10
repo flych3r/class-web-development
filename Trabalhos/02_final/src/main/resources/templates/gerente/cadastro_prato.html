@@ -10,35 +10,38 @@
 <div th:replace="fragments/index :: nav-gerente"></div>
 
 <div class="row">
-    <form class="col s12" action="/prato/salvar" method="post" th:object="${prato}" enctype="multipart/form-data">
-        <input type="hidden" th:field="*{idPrato}">
-        <input type="hidden" th:field="*{status}" th:value="1">
+    <form action="/prato/salvar" class="col s12" enctype="multipart/form-data" method="post" th:object="${prato}">
+        <input th:field="*{idPrato}" type="hidden">
+        <input th:field="*{status}" th:value="1" type="hidden">
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Nome do Prato" id="nome_prato" th:field="*{nome}" type="text" class="validate" required>
-                <span th:if="${#fields.hasErrors('nome')}" class="red-text">Nome Inválido</span>
+                <input class="validate" id="nome_prato" placeholder="Nome do Prato" required th:field="*{nome}"
+                       type="text">
+                <span class="red-text" th:if="${#fields.hasErrors('nome')}">Nome Inválido</span>
                 <label for="nome_prato">Nome</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Descrição Prato" id="desc_prato" th:field="*{descricao}" type="text" class="validate" required>
-                <span th:if="${#fields.hasErrors('descricao')}" class="red-text">Descrição Inválida</span>
+                <input class="validate" id="desc_prato" placeholder="Descrição Prato" required
+                       th:field="*{descricao}" type="text">
+                <span class="red-text" th:if="${#fields.hasErrors('descricao')}">Descrição Inválida</span>
                 <label for="desc_prato">Descrição Prato</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Preço Prato" id="preco_prato" th:field="*{preco}" type="number" min="0" value="0" step="0.01"
-                       pattern="^\d+(\.|\,)\d{2}$" class="validate" required>
-                <span th:if="${#fields.hasErrors('preco')}" class="red-text">Preço Inválido</span>
+                <input class="validate" id="preco_prato" min="0" pattern="^\d+(\.|\,)\d{2}$" placeholder="Preço Prato" required
+                       step="0.01"
+                       th:field="*{preco}" type="number" value="0">
+                <span class="red-text" th:if="${#fields.hasErrors('preco')}">Preço Inválido</span>
                 <label for="preco_prato">Preço Prato</label>
             </div>
         </div>
         <div class="file-field input-field">
             <div class="btn">
                 <span>Imagem</span>
-                <input type="file" id="imagem" name="imagem">
+                <input id="imagem" name="imagem" type="file">
             </div>
             <div class="file-path-wrapper">
                 <input class="file-path validate" type="text">

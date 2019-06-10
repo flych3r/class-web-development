@@ -10,26 +10,29 @@
 <div th:replace="fragments/index :: nav-cliente"></div>
 
 <div class="row">
-    <form class="col s12" action="/cliente/salvar" method="post" th:object="${cliente}">
-        <input type="hidden" th:field="*{idCliente}">
+    <form action="/cliente/salvar" class="col s12" method="post" th:object="${cliente}">
+        <input th:field="*{idCliente}" type="hidden">
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Nome do Cliente" id="nome_cliente" th:field="*{nome}" type="text" class="validate" required>
-                <span th:if="${#fields.hasErrors('nome')}" class="red-text">Nome Inválido</span>
+                <input class="validate" id="nome_cliente" placeholder="Nome do Cliente" required th:field="*{nome}"
+                       type="text">
+                <span class="red-text" th:if="${#fields.hasErrors('nome')}">Nome Inválido</span>
                 <label for="nome_cliente">Nome</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s8">
-                <input data-mask="000.000.000-00" placeholder="000.000.000-00" id="cpf_cliente" th:field="*{cpf}" type="text" class="validate" required
-                       pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
-                <span th:if="${#fields.hasErrors('cpf')}" class="red-text">CPF Inválido</span>
+                <input class="validate" data-mask="000.000.000-00" id="cpf_cliente" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                       placeholder="000.000.000-00" required th:field="*{cpf}"
+                       type="text">
+                <span class="red-text" th:if="${#fields.hasErrors('cpf')}">CPF Inválido</span>
                 <label for="cpf_cliente">CPF</label>
             </div>
             <div class="input-field col s4">
-                <input data-mask="00/00/0000" placeholder="00/00/0000" id="nascimento_cliente" th:field="*{dataNascimento}" type="text" class="validate"
-                       pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}" required>
-                <span th:if="${#fields.hasErrors('dataNascimento')}" class="red-text">Data Inválida</span>
+                <input class="validate" data-mask="00/00/0000" id="nascimento_cliente"
+                       pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}" placeholder="00/00/0000" required
+                       th:field="*{dataNascimento}" type="text">
+                <span class="red-text" th:if="${#fields.hasErrors('dataNascimento')}">Data Inválida</span>
                 <label for="nascimento_cliente">Data Nascimento</label>
             </div>
         </div>
@@ -38,42 +41,48 @@
                 <div class="card ">
                     <div class="card-content">
                         <span class="card-title">Endereço</span>
-                            <div class="row">
-                                <div class="input-field col s10">
-                                    <input placeholder="Rua" id="rua_cliente" th:field="*{endereco.rua}" type="text" class="validate" required>
-                                    <label for="rua_cliente">Rua</label>
-                                </div>
-                                <div class="input-field col s2">
-                                    <input placeholder="Numero" id="numero_cliente" th:field="*{endereco.numero}" type="text" class="validate" required>
-                                    <label for="numero_cliente">Numero</label>
-                                </div>
+                        <div class="row">
+                            <div class="input-field col s10">
+                                <input class="validate" id="rua_cliente" placeholder="Rua" required
+                                       th:field="*{endereco.rua}" type="text">
+                                <label for="rua_cliente">Rua</label>
                             </div>
+                            <div class="input-field col s2">
+                                <input class="validate" id="numero_cliente" placeholder="Numero"
+                                       required th:field="*{endereco.numero}" type="text">
+                                <label for="numero_cliente">Numero</label>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input placeholder="Bairro" id="bairro_cliente" th:field="*{endereco.bairro}" type="text" class="validate" required>
+                                <input class="validate" id="bairro_cliente" placeholder="Bairro"
+                                       required th:field="*{endereco.bairro}" type="text">
                                 <label for="bairro_cliente">Bairro</label>
                             </div>
                             <div class="input-field col s6">
-                                <input placeholder="Cidade" id="cidade_cliente" th:field="*{endereco.cidade}" type="text" class="validate" required>
+                                <input class="validate" id="cidade_cliente" placeholder="Cidade"
+                                       required th:field="*{endereco.cidade}" type="text">
                                 <label for="cidade_cliente">Cidade</label>
                             </div>
                         </div>
                     </div>
                 </div>
-                <span th:if="${#fields.hasErrors('endereco')}" class="red-text">Endereço Inválido</span>
+                <span class="red-text" th:if="${#fields.hasErrors('endereco')}">Endereço Inválido</span>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="cliente@email.com" id="email_cliente" th:field="*{email}" type="email" class="validate" required>
-                <span th:if="${#fields.hasErrors('email')}" class="red-text">Email Inválido</span>
+                <input class="validate" id="email_cliente" placeholder="cliente@email.com" required
+                       th:field="*{email}" type="email">
+                <span class="red-text" th:if="${#fields.hasErrors('email')}">Email Inválido</span>
                 <label for="email_cliente">Email</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input placeholder="Senha Cliente" id="senha_cliente" th:field="*{senha}" type="password" class="validate" required>
-                <span th:if="${#fields.hasErrors('senha')}" class="red-text">Senha Inválida</span>
+                <input class="validate" id="senha_cliente" placeholder="Senha Cliente" required
+                       th:field="*{senha}" type="password">
+                <span class="red-text" th:if="${#fields.hasErrors('senha')}">Senha Inválida</span>
                 <label for="senha_cliente">Senha</label>
             </div>
         </div>
@@ -83,9 +92,10 @@
             <i class="material-icons right">send</i>
         </button>
 
-            <td th:if="${cliente.idCliente != null}"> <a th:href="@{/cliente/excluir/{id}(id = *{idCliente})}">
-                <button type="button" class="btn">Excluir <i class="medium material-icons">delete</i></button></a>
-            </td>
+        <td th:if="${cliente.idCliente != null}"><a th:href="@{/cliente/excluir/{id}(id = *{idCliente})}">
+            <button class="btn" type="button">Excluir <i class="medium material-icons">delete</i></button>
+        </a>
+        </td>
     </form>
 </div>
 

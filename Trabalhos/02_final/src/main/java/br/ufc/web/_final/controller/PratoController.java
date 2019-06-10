@@ -28,7 +28,7 @@ public class PratoController {
 
     @PostMapping("/salvar")
     public ModelAndView salvar(@Validated Prato prato, BindingResult result, @RequestParam(value = "imagem") MultipartFile imagem) {
-        if(result.hasErrors()) {
+        if (result.hasErrors()) {
             ModelAndView mv = new ModelAndView("gerente/cadastrar_prato");
             return mv;
         }

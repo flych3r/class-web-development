@@ -29,8 +29,9 @@
             <td scope="row" th:text="${pedido.cliente.endereco.toString()}"></td>
             <td scope="row" th:text="${{pedido.dataPedido}}"></td>
             <td scope="row" th:text="${'R$ ' + pedido.total}"></td>
-            <td> <a th:href="@{/pedido/enviar/{id}(id = ${pedido.idPedido})}">
-                <button type="button" class="btn"><i class="medium material-icons">local_shipping</i></button></a>
+            <td><a th:href="@{/pedido/enviar/{id}(id = ${pedido.idPedido})}">
+                <button class="btn" type="button"><i class="medium material-icons">local_shipping</i></button>
+            </a>
             </td>
         </div>
     </tr>

@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
-    <link th:href="@{/css/icon.css}" rel="stylesheet"/>
-    <link th:href="@{/css/materialize.min.css}" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/icon.css}"/>
+    <link rel="stylesheet" th:href="@{/css/materialize.min.css}"/>
 </head>
 <body>
 
 <nav class="nav-fixed">
     <div class="nav-wrapper">
-        <a href="/" class="brand-logo">Logo</a>
-        <a href="#" data-target="mobile-demo-g" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <a class="brand-logo" href="/">Logo</a>
+        <a class="sidenav-trigger" data-target="mobile-demo-g" href="#"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <li><a th:href="@{/prato/listar_gerente}">Gerente</a></li>
             <li><a th:href="@{/prato/listar_cliente}">Clientes</a></li>
