@@ -7,6 +7,8 @@ import br.ufc.web._final.service.ClienteService;
 import br.ufc.web._final.service.ItemService;
 import br.ufc.web._final.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +34,13 @@ public class PedidoController {
     public ModelAndView salvar(HttpSession session) {
 
         Pedido pedido = new Pedido();
-        pedido.setCliente(clienteService.serchById(1L));
+
+        Object auth = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetails user = (UserDetails) auth;
+
+        Cliente cliente = clienteService.serchByEmail(user.getUsername());
+
+        pedido.setCliente(cliente);
         pedido.setTotal(0.0);
         pedidoService.save(pedido);
 
@@ -53,14 +61,17 @@ public class PedidoController {
 
         session.invalidate();
 
-        ModelAndView mv = new ModelAndView("redirect:/pedido/listar/1");
+        ModelAndView mv = new ModelAndView("redirect:/pedido/listar");
         return mv;
     }
 
-    @RequestMapping("/listar/{id}")
-    public ModelAndView listar(@PathVariable Long id) {
+    @RequestMapping("/listar")
+    public ModelAndView listar() {
 
-        Cliente cliente = clienteService.serchById(1L);
+        Object auth = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetails user = (UserDetails) auth;
+
+        Cliente cliente = clienteService.serchByEmail(user.getUsername());
 
         List<Pedido> listaPedidos = pedidoService.findCliente(cliente);
 

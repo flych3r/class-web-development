@@ -1,25 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="br" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Title</title>
-    <link rel="stylesheet" th:href="@{/css/icon.css}"/>
-    <link rel="stylesheet" th:href="@{/css/materialize.min.css}"/>
+    <title>Inicio</title>
+    <div th:replace="fragments/index :: head"></div>
 </head>
 <body>
 
-<nav class="nav-fixed">
-    <div class="nav-wrapper">
-        <a class="brand-logo" href="/">Logo</a>
-        <a class="sidenav-trigger" data-target="mobile-demo-g" href="#"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-            <li><a th:href="@{/prato/listar_gerente}">Gerente</a></li>
-            <li><a th:href="@{/prato/listar_cliente}">Clientes</a></li>
-        </ul>
-    </div>
-</nav>
+<div th:replace="fragments/index :: nav-geral"></div>
 
-<script th:src="@{/js/materialize.min.js}"></script>
+<div th:replace="fragments/index :: script"></div>
 
 </body>
 </html>

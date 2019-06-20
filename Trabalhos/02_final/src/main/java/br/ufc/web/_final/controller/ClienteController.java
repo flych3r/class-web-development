@@ -3,6 +3,8 @@ package br.ufc.web._final.controller;
 import br.ufc.web._final.model.Cliente;
 import br.ufc.web._final.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -55,11 +57,22 @@ public class ClienteController {
         return mv;
     }
 
-    @RequestMapping("/atualizar/{id}")
-    public ModelAndView atualizar(@PathVariable Long id) {
-        Cliente cliente = clienteService.serchById(id);
+    @RequestMapping("/atualizar")
+    public ModelAndView atualizar() {
+
+        Object auth = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetails user = (UserDetails) auth;
+
+        Cliente cliente = clienteService.serchByEmail(user.getUsername());
+
         ModelAndView mv = new ModelAndView("cliente/cadastrar_cliente");
         mv.addObject("cliente", cliente);
+        return mv;
+    }
+
+    @RequestMapping("/logar")
+    public ModelAndView logar() {
+        ModelAndView mv = new ModelAndView("login");
         return mv;
     }
 

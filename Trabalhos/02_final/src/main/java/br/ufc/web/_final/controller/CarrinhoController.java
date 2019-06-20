@@ -27,6 +27,7 @@ public class CarrinhoController {
 
     @RequestMapping(value = "/adicionar/{id}")
     public ModelAndView adicionar(@PathVariable("id") Long id, HttpSession session) {
+
         Double total = 0.0;
         if (session.getAttribute("carrinho") == null) {
             List<Item> cart = new ArrayList<>();
