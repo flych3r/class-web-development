@@ -6,6 +6,7 @@ import br.ufc.web._final.model.Pedido;
 import br.ufc.web._final.service.ClienteService;
 import br.ufc.web._final.service.ItemService;
 import br.ufc.web._final.service.PedidoService;
+import org.apache.commons.collections4.IterableUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -33,6 +35,10 @@ public class PedidoController {
     @RequestMapping("/salvar")
     public ModelAndView salvar(HttpSession session) {
 
+        Iterable<Item> cart = (Iterable<Item>) session.getAttribute("carrinho");
+        if(IterableUtils.size(cart) < 1)
+            return new ModelAndView("redirect:/prato/listar_cliente");
+
         Pedido pedido = new Pedido();
 
         Object auth = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -43,8 +49,6 @@ public class PedidoController {
         pedido.setCliente(cliente);
         pedido.setTotal(0.0);
         pedidoService.save(pedido);
-
-        Iterable<Item> cart = (Iterable<Item>) session.getAttribute("carrinho");
 
         Double total = 0.0;
         for (Item item : cart) {

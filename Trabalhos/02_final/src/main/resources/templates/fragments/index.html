@@ -18,12 +18,13 @@
         <nav class="nav-fixed">
             <div class="nav-wrapper">
                 <a class="brand-logo" href="/">Delivery</a>
+                <span th:text="${#authentication.name}"></span>
                 <a class="sidenav-trigger" data-target="mobile-demo-g" href="#"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a th:href="@{/prato/listar_gerente}">Pratos</a></li>
                     <li><a th:href="@{/cliente/listar}">Clientes</a></li>
                     <li><a th:href="@{/pedido/listar_pendente}">Pedidos</a></li>
-                    <li><a th:href="@{/cliente/logar}">Login</a></li>
+                    <li><a th:href="@{/logar}">Login</a></li>
                 </ul>
             </div>
 
@@ -33,7 +34,7 @@
             <li><a th:href="@{/prato/listar_gerente}">Pratos</a></li>
             <li><a th:href="@{/cliente/listar}">Clientes</a></li>
             <li><a th:href="@{/pedido/listar_pendente}">Pedidos</a></li>
-            <li><a th:href="@{/cliente/logar}">Login</a></li>
+            <li><a th:href="@{/logar}">Login</a></li>
         </ul>
 
     </div>
@@ -50,9 +51,9 @@
                     <li><a th:href="@{/prato/listar_cliente}">Pratos</a></li>
                     <li><a th:href="@{/pedido/selecionados}">Carrinho</a></li>
                     <li><a th:href="@{/pedido/listar}">Pedidos</a></li>
-                    <li><a th:href="@{/cliente/atualizar}">Conta</a></li>
-                    <li><a th:href="@{/cliente/cadastrar}">Cadastrar</a></li>
-                    <li><a th:href="@{/cliente/logar}">Login</a></li>
+                    <li sec:authorize="hasRole('USER')"><a th:href="@{/cliente/atualizar}" th:text="${#authentication.name}"></a></li>
+                    <li sec:authorize="!hasAnyRole('USER','ADMIN')"><a th:href="@{/cliente/cadastrar}">Cadastrar</a></li>
+                    <li><a th:href="@{/logar}">Login</a></li>
                 </ul>
             </div>
 
@@ -62,9 +63,9 @@
             <li><a th:href="@{/prato/listar_cliente}">Pratos</a></li>
             <li><a th:href="@{/pedido/selecionados}">Carrinho</a></li>
             <li><a th:href="@{/pedido/listar}">Pedidos</a></li>
-            <li><a th:href="@{/cliente/atualizar}">Conta</a></li>
-            <li><a th:href="@{/cliente/logar}">Login</a></li>
-            <li><a th:href="@{/cliente/cadastrar}">Cadastrar</a></li>
+            <li sec:authorize="hasRole('USER')"><a th:href="@{/cliente/atualizar}" th:text="${#authentication.name}"></a></li>
+            <li sec:authorize="!hasAnyRole('USER','ADMIN')"><a th:href="@{/cliente/cadastrar}">Cadastrar</a></li>
+            <li><a th:href="@{/logar}">Login</a></li>
         </ul>
 
     </div>

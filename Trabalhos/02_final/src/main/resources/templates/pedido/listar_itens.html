@@ -8,7 +8,8 @@
 </head>
 <body>
 
-<div th:replace="fragments/index :: nav-cliente"></div>
+<div sec:authorize="hasRole('USER')" th:replace="fragments/index :: nav-cliente"></div>
+<div sec:authorize="hasRole('ADMIN')" th:replace="fragments/index :: nav-gerente"></div>
 
 <table class="striped centered">
     <thead>

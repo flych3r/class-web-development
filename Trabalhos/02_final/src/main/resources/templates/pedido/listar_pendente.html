@@ -18,6 +18,7 @@
         <th scope="col">Endereço</th>
         <th scope="col">Data</th>
         <th scope="col">Total</th>
+        <th scope="col">Itens</th>
         <th scope="col">Enviar</th>
 
     </tr>
@@ -30,6 +31,9 @@
             <td scope="row" th:text="${pedido.cliente.endereco.toString()}"></td>
             <td scope="row" th:text="${{pedido.dataPedido}}"></td>
             <td scope="row" th:text="${'R$ ' + pedido.total}"></td>
+            <td><a th:href="@{/item/listar/{id}(id = ${pedido.idPedido})}">
+                <button class="btn" type="button">Itens<i class="medium material-icons">event_note</i></button>
+            </a>
             <td><a th:href="@{/pedido/enviar/{id}(id = ${pedido.idPedido})}">
                 <button class="btn" type="button"><i class="medium material-icons">local_shipping</i></button>
             </a>

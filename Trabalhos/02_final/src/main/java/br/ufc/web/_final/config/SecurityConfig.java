@@ -32,13 +32,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/pedido/selecionados").permitAll()
                 .antMatchers("/pedido/adicionar").permitAll()
                 .antMatchers("/pedido/remover").permitAll()
+                .antMatchers("/item/listar").permitAll()
 
                 .antMatchers("/pedido/listar").hasRole("USER")
                 .antMatchers("/cliente/atualizar").hasRole("USER")
                 .antMatchers("/pedido/salvar").hasRole("USER")
                 .antMatchers("/cliente/excluir").hasRole("USER")
                 .antMatchers("/prato/listar").hasRole("USER")
-                .antMatchers("/item/listar").hasRole("USER")
 
                 .antMatchers("/cliente/listar").hasRole("ADMIN")
                 .antMatchers("/pedido/listar_pendente").hasRole("ADMIN")
@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .and()
                     .formLogin()
-                    .loginPage("/cliente/logar")
+                    .loginPage("/logar")
                     .permitAll()
                     .defaultSuccessUrl("/user")
 
@@ -63,7 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .logout()
                     .invalidateHttpSession(true)
                     .clearAuthentication(true)
-                    .logoutSuccessUrl("/cliente/logar?logout")
+                    .logoutSuccessUrl("/logar?logout")
                     .permitAll();
 
     }

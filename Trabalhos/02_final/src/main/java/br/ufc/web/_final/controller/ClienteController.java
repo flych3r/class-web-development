@@ -70,10 +70,4 @@ public class ClienteController {
         return mv;
     }
 
-    @RequestMapping("/logar")
-    public ModelAndView logar() {
-        ModelAndView mv = new ModelAndView("login");
-        return mv;
-    }
-
 }
